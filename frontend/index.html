@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fc">
+  <title>Cloud Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/gallery/css/styles.css">
+  <script src="/gallery/js/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/gallery/" aria-label="Cloud Gallery home">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5z"/><circle cx="9" cy="9" r="1.5"/><path d="m5 17 4.5-4.5 3 3 2.5-2.5L20 18"/></svg></span>
+      <span>cloud<span class="brand-light">gallery</span></span>
+    </a>
+    <nav aria-label="Main navigation"><a class="nav-link active" href="#gallery">My gallery</a></nav>
+    <a class="top-upload" href="#upload"><span>＋</span> Add photos</a>
+  </header>
+
+  <main class="page-shell">
+    <section class="intro" id="upload">
+      <div class="intro-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR PRIVATE SPACE</p>
+        <h1>Every moment,<br><span>beautifully kept.</span></h1>
+        <p class="intro-text">A little place for the images you love. Upload, revisit, and keep your collection close.</p>
+      </div>
+      <div class="upload-card">
+        <form id="upload-form">
+          <input id="image-input" name="image" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" hidden>
+          <button class="dropzone" id="choose-button" type="button">
+            <span class="upload-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14v4.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V14"/></svg></span>
+            <span class="drop-title" id="file-label">Drop an image here or <strong>browse</strong></span>
+            <span class="drop-note">JPG, PNG or WEBP <i>·</i> up to 5 MB</span>
+          </button>
+          <div class="upload-actions"><span id="upload-status" class="status" role="status" aria-live="polite">Ready when you are</span><button id="upload-button" class="primary-button" type="submit" disabled>Upload image <span>↗</span></button></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="gallery">
+      <div class="section-heading"><div><p class="eyebrow">THE COLLECTION</p><h2>Your gallery <span id="image-count" class="count">—</span></h2></div><button id="refresh-button" class="refresh-button" type="button" aria-label="Refresh gallery"><span>↻</span> Refresh</button></div>
+      <div id="gallery-grid" class="gallery-grid" aria-live="polite"></div>
+      <div id="empty-state" class="empty-state" hidden><div class="empty-art"><span>✳</span><span>◌</span><span>✦</span></div><h3>Your gallery is a blank canvas</h3><p>Upload your first image and it will appear here.</p><a href="#upload">Add your first image <span>↗</span></a></div>
+      <div id="loading-state" class="loading-state">Gathering your images<span class="loading-dots">...</span></div>
+    </section>
+    <footer><span>Made for the moments worth keeping.</span><span class="footer-private"><i></i> Private &amp; secure</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
